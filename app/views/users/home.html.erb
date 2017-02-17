@@ -1,0 +1,23 @@
+<h1>Home</h1>
+
+<% @users.each_with_index do |user, index| %>
+ <% user_post = @postsArray[index].first %>
+ <% puts "** user_post.inspect: #{user_post.inspect}" %>
+ <div class="user-box">
+  <div class="name-link">
+    <%= link_to user.fname + " " + user.lname, user_posts_path(user) %>
+  </div>
+  <div class="post-title">
+    <% if user_post != "n" %>
+      <%= user_post.title %>
+    <% else %>
+    <p class="empty-text">no posts for this user</p>
+    <% end %>
+  </div>
+  <div class="post_content">
+    <% if user_post != "n" %>
+      <%= user_post.content %>
+    <% end %>
+  </div>
+ </div>
+<% end %>

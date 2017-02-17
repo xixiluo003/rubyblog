@@ -1,0 +1,15 @@
+<h1>menu</h1>
+<div class="menu" id="menuItems">
+
+  <% puts "** menu session[:user_id]: #{session[:user_id]}" %>
+  <% if session[:user_id] %>
+    <%= link_to 'All Users', "/home" %>
+    <%= link_to 'My Posts', user_posts_path(user_id: session[:user_id]) %>
+    <%= link_to 'New Post', new_user_post_path(user_id: session[:user_id]) %>
+    <%= link_to 'Log Out', "/signout" %>
+  <% else %>
+    <%= link_to 'New User', new_user_path %>
+    <%= link_to 'Log in', "/login" %>
+  <% end %>
+
+</div>

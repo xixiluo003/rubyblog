@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @user.fname + " " + @user.lname %>'s Posts</h1>
+
+<div class="postTitle"> <%= @post.title %> </div>
+<div class="postContent"> <%= @post.content %> </div>
+<div class="postComments">
+  <% @comments.each do |comment| %>
+    <br><%= comment.content %>
+    <br>-<%= comment.user.fname %>
+  <% end %>
+</div>
+
+
+<%= link_to 'Edit', edit_user_post_path(session[:user_id], @post) %> |
+<%= link_to 'Back', user_posts_path(session[:user_id]) %>
