@@ -13,7 +13,11 @@ rails generate model Comment user_id:integer post_id:integer content:text
           <%= f.submit "Save" %>
     <% end %>
 
-
+    <%= form_tag(user_posts_path, method: "post") do %>
+        <p><%= text_field_tag :title, value = "title" %><%= label_tag(:title, "title") %></p>
+        <p><%= text_field_tag :content, value = "content" %><%= label_tag(:content, "content") %></p>
+        <%= submit_tag "Save" %>
+    <% end %>
 
 
 
